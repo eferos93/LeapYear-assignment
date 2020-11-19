@@ -1,12 +1,9 @@
 package dssc.assignment.leapyear;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class Divisible {
@@ -32,14 +29,16 @@ public class Divisible {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = {1996, 2004, 2008, 2001})
-    void divisibleBy4OrNotBy100(int number) {
-        assertTrue(leapYear.divisibleBy4OrNotBy100(number));
+    @ValueSource(ints = {1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960, 1964,
+            1968, 1972, 1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016, 2020}
+            )
+    void divisibleBy4OrBy100And400(int number) {
+        assertTrue(leapYear.test(number));
     }
 
     @ParameterizedTest
-    @CsvSource({"2001, true", "1900, true", "2000, true", "1996, false", "1995, false"})
-    void divisibleBy4OrNotBy100UnlessDivisibleBy400(int number, boolean expected) {
-        assertEquals(expected, leapYear.test(number));
+    @ValueSource(ints = {1700, 1800, 1900, 2100, 2001, 2200, 2300})
+    void notALeapYear(int number) {
+        assertFalse(leapYear.test(number));
     }
 }
