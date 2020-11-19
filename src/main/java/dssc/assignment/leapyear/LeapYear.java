@@ -16,4 +16,8 @@ public class LeapYear {
     public boolean divisibleBy4OrNotBy100(int year) {
         return divisibleBy4(year) || !divisibleBy100(year);
     }
+
+    public boolean test(int year) {
+        return divisibleBy4OrNotBy100(year) || divisibleBy400(year);
+    }
 }
