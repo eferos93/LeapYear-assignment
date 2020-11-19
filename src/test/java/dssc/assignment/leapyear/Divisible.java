@@ -22,4 +22,10 @@ public class Divisible {
     void divisibleBy100(int number) {
         assertTrue(leapYear.divisibleBy100(number));
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {2000, 2400, 1600})
+    void divisibleBy400(int number) {
+        assertTrue(leapYear.divisibleBy400(number));
+    }
 }
