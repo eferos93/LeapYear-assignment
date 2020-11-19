@@ -32,13 +32,13 @@ public class Divisible {
     @ValueSource(ints = {1904, 1908, 1912, 1916, 1920, 1924, 1928, 1932, 1936, 1940, 1944, 1948, 1952, 1956, 1960, 1964,
             1968, 1972, 1976, 1980, 1984, 1988, 1992, 1996, 2000, 2004, 2008, 2012, 2016, 2020}
             )
-    void divisibleBy4OrBy100And400(int number) {
+    void divisibleBy4OrNotBy100Or400(int number) {
         assertTrue(leapYear.test(number));
     }
 
     @ParameterizedTest
     @ValueSource(ints = {1700, 1800, 1900, 2100, 2001, 2200, 2300})
-    void notALeapYear(int number) {
+    void notDivisibleBy4OrNotBy100Or400(int number) {
         assertFalse(leapYear.test(number));
     }
 }
