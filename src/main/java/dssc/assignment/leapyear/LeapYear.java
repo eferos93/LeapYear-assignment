@@ -16,4 +16,8 @@ public class LeapYear {
     public boolean test(int year) {
         return divisibleBy4(year) && (!divisibleBy100(year) || divisibleBy400(year));
     }
+
+    public void print(int year) {
+        System.out.println(test(year));
+    }
 }
