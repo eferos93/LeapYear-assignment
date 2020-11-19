@@ -12,4 +12,8 @@ public class LeapYear {
     public boolean divisibleBy400(int year) {
         return year % 400 == 0;
     }
+
+    public boolean divisibleBy4OrNotBy100(int year) {
+        return divisibleBy4(year) || !divisibleBy100(year);
+    }
 }
