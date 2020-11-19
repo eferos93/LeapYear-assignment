@@ -1,5 +1,6 @@
 package dssc.assignment.leapyear;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -13,6 +14,12 @@ public class Divisible {
     @ParameterizedTest
     @ValueSource(ints = {1996, 2000, 2400})
     void isNumberDivisibleBy4(int number) {
-        assertTrue(leapYear.testYear(number));
+        assertTrue(leapYear.divisibleBy4(number));
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {2000, 2100, 1900})
+    void divisibleBy100(int number) {
+        assertTrue(leapYear.divisibleBy100(number));
     }
 }
